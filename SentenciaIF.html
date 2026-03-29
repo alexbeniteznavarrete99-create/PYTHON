@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deber 1 - Sentencia IF</title>
+
+    <style>
+        body{
+            font-family: Arial, sans-serif;
+            background-color:#f4f4f4;
+            text-align:center;
+            margin:0;
+            padding:40px;
+        }
+
+        .contenedor{
+            background:white;
+            padding:30px;
+            border-radius:10px;
+            width:70%;
+            margin:auto;
+            box-shadow:0px 5px 15px rgba(0,0,0,0.2);
+        }
+
+        a{
+            display:inline-block;
+            margin-top:20px;
+            padding:10px 20px;
+            background:#2c5364;
+            color:white;
+            text-decoration:none;
+            border-radius:6px;
+        }
+
+        a:hover{
+            background:#1b3642;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="contenedor">
+
+<h1>Deber 1</h1>
+
+<h2>Sentencia IF</h2>
+
+<PRE><CODE>
+    #Pide un número al usuario y muestra si es mayor que 50.
+numero = float(input("Ingresar un número: "))
+if numero > 50:
+     print("El número es mayor que 50")
+else:
+    print("El número NO es mayor que 50")
+
+#Pide la edad de una persona y determina si puede votar (18 años o más).
+edad = float(input("Ingresar la edad: "))
+if edad >= 18:
+     print("Puedes votar")
+else:
+    print("No puedes votar")
+    
+#Pide un número y verifica si es múltiplo de 3
+numero = int(input("Ingresar un número: "))
+if numero % 3 == 0:
+     print("Es multiplo de 3")
+else:
+    print("No es multiplo de 3")
+    
+#Pide una contraseña y comprueba si es igual a python123
+clave = input("Ingresar la contraseña: ")
+if clave == "python123":
+     print("Contraseña correcta")
+else:
+    print("Contraseña Incorrecta")
+    
+#Pide una nota del 0 al 10 y muestra si el estudiante está aprobado (≥ 7) o reprobado.
+nota = float(input("Ingresa tu nota (0 a 10): "))
+if nota >= 7:
+     print("Aprobado")
+else:
+    print("Reprobado")
+    
+#Pide dos números y muestra cuál de los dos es mayor.
+num1 = float(input("Ingresa el primer número: "))
+num2 = float(input("Ingresa el segundo número: "))
+if num1 > num2:
+     print("El primer número es mayor")
+elif num2 > num1:
+    print("El segundo número es mayor")
+else:
+    print("Ambos número son iguales")
+    
+#Pide un número y determina si es positivo, negativo o cero
+numero = float(input("Ingresa un número: "))
+if numero > 0:
+     print("Es positivo")
+elif numero < 0:
+    print("Es negativo")
+else:
+    print("Es cero")
+    
+#Pide una letra e indica si es una vocal
+letra = input("Ingresa una letra: ")
+if letra in "aeiou":
+     print("Es una vocal")
+else:
+    print("No es una vocal")
+    
+#Pide una temperatura y muestra si hace frío (menos de 15 °C)
+temperatura = float(input("Ingre la temperatura en °C: "))
+if temperatura < 15:
+     print("Hace frío")
+else:
+    print("No hace frío")
+    
+#Pide un año e indica si es bisiesto usando únicamente condiciones.
+año = int(input("Ingresa el año: "))
+if (año % 4 == 0 and año % 100 != 0) or (año % 400 == 0):
+     print("Es un año bisiesto")
+else:
+    print("No es un año bisiesto")
+  </CODE></PRE>
+
+<p>
+El deber 1 trata sobre la <b>Sentencia IF</b>, utilizada en programación
+para tomar decisiones dentro de un programa.
+</p>
+
+<p>
+La sentencia IF permite ejecutar una acción solo si se cumple una condición.
+</p>
+
+<div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;">
+
+  <iframe src="https://drive.google.com/file/d/1S2KuCniQyTRquOg7-pxpogTM7r_ceUZR/preview"
+
+    style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;"
+
+    allow="autoplay; encrypted-media" allowfullscreen>
+
+  </iframe>
+
+</div>
+
+<a href="index.html">Volver a la página principal</a>
+
+</div>
+
+</body>
+</html>
