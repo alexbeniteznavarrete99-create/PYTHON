@@ -1,76 +1,369 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Deber 1 - Sentencia IF</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modular Tasks · deber cards neumórficas</title>
+  <!-- Font Awesome 6 (free) para iconos representativos -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    }
 
-    <style>
-        body{
-            font-family: Arial, sans-serif;
-            background-color:#f4f4f4;
-            text-align:center;
-            margin:0;
-            padding:40px;
-        }
+    body {
+      min-height: 100vh;
+      background: #0f1217;  /* fondo oscuro moderno con matiz frío */
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem 1.5rem;
+    }
 
-        .contenedor{
-            background:white;
-            padding:30px;
-            border-radius:10px;
-            width:70%;
-            margin:auto;
-            box-shadow:0px 5px 15px rgba(0,0,0,0.2);
-        }
+    /* contenedor principal con título sutil */
+    .tasks-header {
+      width: 100%;
+      max-width: 1280px;
+      margin-bottom: 3rem;
+    }
 
-        a{
-            display:inline-block;
-            margin-top:20px;
-            padding:10px 20px;
-            background:#2c5364;
-            color:white;
-            text-decoration:none;
-            border-radius:6px;
-        }
+    .tasks-header h1 {
+      color: #eef2fb;
+      font-weight: 500;
+      font-size: 2.2rem;
+      letter-spacing: -0.02em;
+      border-left: 6px solid #7b4dff;
+      padding-left: 1.5rem;
+      opacity: 0.9;
+      text-shadow: 0 2px 5px rgba(0,0,0,0.5);
+    }
 
-        a:hover{
-            background:#1b3642;
-        }
-    </style>
+    .tasks-header h1 span {
+      font-weight: 300;
+      color: #a0a8c0;
+      font-size: 1.2rem;
+      margin-left: 0.75rem;
+    }
+
+    /* grid responsive */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem 1.8rem;
+      max-width: 1280px;
+      width: 100%;
+      margin: 0 auto;
+    }
+
+    /* ===== CARD ===== */
+    .task-card {
+      background: #eef2fb;          /* cards claras con relieve */
+      border-radius: 2.5rem;        /* bordes generosos y redondeados */
+      padding: 2rem 1.8rem 2rem 1.8rem;
+      box-shadow: 
+        -12px -12px 24px rgba(255, 255, 255, 0.5),    /* luz neumorphism */
+        12px 12px 24px rgba(0, 0, 0, 0.25),
+        inset 2px 2px 4px rgba(255,255,255,0.8),
+        inset -4px -4px 8px rgba(0,0,0,0.05);
+      transition: all 0.3s cubic-bezier(0.2, 0, 0, 1);
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      border: 1px solid rgba(255,255,255,0.5);
+      will-change: transform, box-shadow;
+    }
+
+    /* hover: la card se eleva con sombra más profunda */
+    .task-card:hover {
+      transform: translateY(-10px) scale(1.02);
+      box-shadow: 
+        -16px -16px 32px rgba(255, 255, 255, 0.6),
+        18px 18px 36px rgba(0, 0, 0, 0.35),
+        inset 2px 2px 4px rgba(255,255,255,0.9),
+        inset -4px -4px 8px rgba(0,0,0,0.02);
+    }
+
+    /* icono representativo (arriba) */
+    .card-icon {
+      font-size: 2.8rem;
+      color: #5f3dc3;        /* morado profundo */
+      margin-bottom: 1.2rem;
+      filter: drop-shadow(2px 4px 6px rgba(97, 64, 193, 0.3));
+      transition: transform 0.2s ease;
+    }
+
+    .task-card:hover .card-icon {
+      transform: scale(1.05);
+      color: #7b4dff;        /* azul-morado brillante */
+    }
+
+    /* título grande "Deber 1" */
+    .card-title {
+      font-size: 2.6rem;
+      font-weight: 700;
+      color: #1f1d2b;
+      line-height: 1.1;
+      margin-bottom: 0.75rem;
+      letter-spacing: -0.02em;
+      text-shadow: 0 1px 3px rgba(255,255,255,0.5);
+    }
+
+    /* descripción pequeña */
+    .card-desc {
+      font-size: 0.95rem;
+      color: #2f2b3f;
+      line-height: 1.5;
+      margin-bottom: 2rem;
+      font-weight: 400;
+      opacity: 0.8;
+      border-left: 3px solid #9f8bef;
+      padding-left: 0.8rem;
+    }
+
+    /* contenedor de botones */
+    .card-actions {
+      display: flex;
+      gap: 1rem;
+      margin-top: auto;
+      flex-wrap: wrap;
+    }
+
+    /* botones base */
+    .btn {
+      flex: 1 1 auto;
+      padding: 0.8rem 0.5rem;
+      border: none;
+      border-radius: 2rem;         /* pill shape */
+      font-weight: 600;
+      font-size: 1rem;
+      letter-spacing: 0.3px;
+      cursor: pointer;
+      background: #eef2fb;
+      box-shadow: 
+        -5px -5px 12px rgba(255,255,255,0.7),
+        5px 5px 12px rgba(0,0,0,0.12);
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      color: #1c1a27;
+      border: 1px solid rgba(255,255,255,0.4);
+    }
+
+    /* estilo específico botones con azul/morado brillante en hover y base */
+    .btn-primary {
+      background: #5d3bef;         /* azul-morado brillante base */
+      color: white;
+      box-shadow: 
+        -5px -5px 12px rgba(160, 140, 255, 0.4),
+        5px 5px 12px rgba(0, 0, 0, 0.25),
+        inset 0 0 0 1px rgba(255,255,255,0.3);
+    }
+
+    .btn-secondary {
+      background: #eef2fb;
+      color: #2d2640;
+      /* sombra suave neumorphism */
+    }
+
+    /* efecto iluminación hover en botones */
+    .btn-primary:hover {
+      background: #7b4dff;          /* más brillante */
+      box-shadow: 
+        0 0 18px #8f7afe,
+        -5px -5px 12px rgba(255,255,255,0.6),
+        5px 5px 14px rgba(0,0,0,0.3);
+      transform: scale(1.03);
+      color: white;
+    }
+
+    .btn-secondary:hover {
+      background: #ffffff;
+      box-shadow: 
+        0 0 16px #b9adff,
+        -6px -6px 14px white,
+        6px 6px 16px rgba(45, 30, 70, 0.15);
+      transform: scale(1.02);
+      color: #4a2bc7;
+      border-color: #c1b3ff;
+    }
+
+    .btn i {
+      font-size: 1rem;
+      transition: transform 0.1s;
+    }
+
+    .btn:hover i {
+      transform: translateX(2px) scale(1.1);
+    }
+
+    /* pequeño detalle de numeración extra */
+    .card-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.5rem;
+    }
+
+    .badge-num {
+      background: rgba(93, 59, 239, 0.15);
+      padding: 0.3rem 1rem;
+      border-radius: 40px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: #4b36b3;
+      box-shadow: inset 0 1px 3px rgba(0,0,0,0.05);
+    }
+
+    /* responsive: ajustes móviles */
+    @media (max-width: 600px) {
+      .cards-grid {
+        gap: 1.5rem;
+      }
+      .task-card {
+        padding: 1.8rem 1.5rem;
+        border-radius: 2rem;
+      }
+      .card-title {
+        font-size: 2.2rem;
+      }
+      .tasks-header h1 {
+        font-size: 1.8rem;
+      }
+    }
+
+    /* efecto foco adicional para accesibilidad visual */
+    .btn:focus-visible {
+      outline: 3px solid #b69eff;
+      outline-offset: 3px;
+    }
+
+    /* footer sutil */
+    .footnote {
+      margin-top: 4rem;
+      color: #858cad;
+      font-size: 0.9rem;
+      font-weight: 300;
+      letter-spacing: 0.5px;
+      text-align: center;
+    }
+  </style>
 </head>
-
 <body>
+  <div class="tasks-header">
+    <h1>📋 Deberes <span>· interactive cards</span></h1>
+  </div>
 
-<div class="contenedor">
+  <div class="cards-grid">
+    <!-- Deber 1 -->
+    <div class="task-card">
+      <div class="card-meta">
+        <span class="badge-num"><i class="far fa-list-alt" style="margin-right: 5px;"></i>pendiente</span>
+      </div>
+      <div class="card-icon"><i class="fas fa-pen-fancy"></i></div>
+      <div class="card-title">Deber 1</div>
+      <div class="card-desc">Redactar resumen ejecutivo del proyecto y objetivos principales.</div>
+      <div class="card-actions">
+        <button class="btn btn-secondary" aria-label="Vista previa deber 1"><i class="fas fa-eye"></i> Vista</button>
+        <button class="btn btn-primary" aria-label="Ver contenido deber 1"><i class="fas fa-arrow-right"></i> Ver</button>
+      </div>
+    </div>
 
-<h1>Deber 1</h1>
+    <!-- Deber 2 -->
+    <div class="task-card">
+      <div class="card-meta">
+        <span class="badge-num"><i class="far fa-clock" style="margin-right: 5px;"></i>progreso</span>
+      </div>
+      <div class="card-icon"><i class="fas fa-code"></i></div>
+      <div class="card-title">Deber 2</div>
+      <div class="card-desc">Maquetar componentes principales con diseño responsive y grid.</div>
+      <div class="card-actions">
+        <button class="btn btn-secondary"><i class="fas fa-eye"></i> Vista</button>
+        <button class="btn btn-primary"><i class="fas fa-arrow-right"></i> Ver</button>
+      </div>
+    </div>
 
-<h2>Sentencia IF</h2>
+    <!-- Deber 3 -->
+    <div class="task-card">
+      <div class="card-meta">
+        <span class="badge-num"><i class="fas fa-check-circle" style="margin-right: 5px;"></i>revisión</span>
+      </div>
+      <div class="card-icon"><i class="fas fa-chart-line"></i></div>
+      <div class="card-title">Deber 3</div>
+      <div class="card-desc">Analizar métricas de usabilidad y preparar informe para stakeholders.</div>
+      <div class="card-actions">
+        <button class="btn btn-secondary"><i class="fas fa-eye"></i> Vista</button>
+        <button class="btn btn-primary"><i class="fas fa-arrow-right"></i> Ver</button>
+      </div>
+    </div>
 
-<p>
-El deber 1 trata sobre la <b>sentencia IF</b>, utilizada en programación
-para tomar decisiones dentro de un programa.
-</p>
+    <!-- Deber 4 -->
+    <div class="task-card">
+      <div class="card-meta">
+        <span class="badge-num"><i class="far fa-star" style="margin-right: 5px;"></i>prioridad</span>
+      </div>
+      <div class="card-icon"><i class="fas fa-paint-brush"></i></div>
+      <div class="card-title">Deber 4</div>
+      <div class="card-desc">Definir paleta de colores y sistema de iconos para la interfaz.</div>
+      <div class="card-actions">
+        <button class="btn btn-secondary"><i class="fas fa-eye"></i> Vista</button>
+        <button class="btn btn-primary"><i class="fas fa-arrow-right"></i> Ver</button>
+      </div>
+    </div>
 
-<p>
-La sentencia IF permite ejecutar una acción solo si se cumple una condición.
-</p>
+    <!-- Deber 5 (extra para demostrar grid) -->
+    <div class="task-card">
+      <div class="card-meta">
+        <span class="badge-num"><i class="fas fa-tasks"></i> nuevo</span>
+      </div>
+      <div class="card-icon"><i class="fas fa-cubes"></i></div>
+      <div class="card-title">Deber 5</div>
+      <div class="card-desc">Implementar micro-interacciones y animaciones suaves en cards.</div>
+      <div class="card-actions">
+        <button class="btn btn-secondary"><i class="fas fa-eye"></i> Vista</button>
+        <button class="btn btn-primary"><i class="fas fa-arrow-right"></i> Ver</button>
+      </div>
+    </div>
 
-<div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;">
+    <!-- Deber 6 -->
+    <div class="task-card">
+      <div class="card-meta">
+        <span class="badge-num"><i class="far fa-gem"></i> plus</span>
+      </div>
+      <div class="card-icon"><i class="fas fa-mobile-alt"></i></div>
+      <div class="card-title">Deber 6</div>
+      <div class="card-desc">Probar la interfaz en dispositivos móviles y ajustar espaciados.</div>
+      <div class="card-actions">
+        <button class="btn btn-secondary"><i class="fas fa-eye"></i> Vista</button>
+        <button class="btn btn-primary"><i class="fas fa-arrow-right"></i> Ver</button>
+      </div>
+    </div>
+  </div>
 
-  <iframe src="https://drive.google.com/file/d/1UFprXHO2Ce2WFGasey_jYiMYdtRtJ6nX/preview"
+  <div class="footnote">
+    ✦ cards con neumorphism suave · hover que eleva · botones con iluminación ✦
+  </div>
 
-    style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;"
-
-    allow="autoplay; encrypted-media" allowfullscreen>
-
-  </iframe>
-
-</div>
-
-<a href="index.html">Volver a la página principal</a>
-
-</div>
-
+  <!-- micro script para simular feedback de botones (opcional demo) -->
+  <script>
+    (function() {
+      // solo para demostración: alerta al hacer clic en Ver/Vista (sin afectar diseño)
+      const buttons = document.querySelectorAll('.btn');
+      buttons.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          e.preventDefault();
+          const card = btn.closest('.task-card');
+          const titulo = card ? card.querySelector('.card-title')?.innerText : 'tarea';
+          const accion = btn.classList.contains('btn-primary') ? 'Ver' : 'Vista previa';
+          alert(`📌 ${accion} — ${titulo} (demo interactiva)`);
+        });
+      });
+    })();
+  </script>
 </body>
 </html>
