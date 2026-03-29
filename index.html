@@ -38,9 +38,17 @@
       box-shadow:0 10px 25px rgba(0,0,0,0.2);
     }
 
+    /* contenedor para los botones */
+    .botones{
+      margin-top:20px;
+      display:flex;
+      justify-content:center;
+      gap:15px;
+      flex-wrap:wrap;
+    }
+
     a{
       display:inline-block;
-      margin-top:20px;
       padding:12px 25px;
       background:#2c5364;
       color:white;
@@ -53,6 +61,15 @@
     a:hover{
       background:#1b3642;
       transform:scale(1.05);
+    }
+
+    /* botón lecciones diferente color */
+    .btn-lecciones{
+      background:#7b4dff;
+    }
+
+    .btn-lecciones:hover{
+      background:#5a35cc;
     }
 
     footer{
@@ -80,8 +97,11 @@
     Aquí podrás encontrar los deberes y actividades realizadas.
   </p>
 
-  <a href="Deber1.html">Visitar Deberes</a>
-  <a href="Lecciones.html">Visitar Deberes</a>
+  <!-- BOTONES -->
+  <div class="botones">
+    <a href="Deber1.html">Visitar Deberes</a>
+    <a href="Lecciones.html" class="btn-lecciones">Lecciones</a>
+  </div>
 </div>
 
 <footer>
