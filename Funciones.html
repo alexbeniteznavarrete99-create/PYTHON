@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deber 1 - Sentencia IF</title>
+
+    <style>
+        body{
+            font-family: Arial, sans-serif;
+            background-color:#f4f4f4;
+            text-align:center;
+            margin:0;
+            padding:40px;
+        }
+
+        .contenedor{
+            background:white;
+            padding:30px;
+            border-radius:10px;
+            width:70%;
+            margin:auto;
+            box-shadow:0px 5px 15px rgba(0,0,0,0.2);
+        }
+
+        a{
+            display:inline-block;
+            margin-top:20px;
+            padding:10px 20px;
+            background:#2c5364;
+            color:white;
+            text-decoration:none;
+            border-radius:6px;
+        }
+
+        a:hover{
+            background:#1b3642;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="contenedor">
+
+<h1>Deber 2</h1>
+
+<h2>Bucles "for" y "while"</h2>
+
+<PRE><CODE>
+#Deber 3 - Funciones 
+#Crea una función que muestre un mensaje de bienvenida personalizado.
+def bienvenida(nombre):
+    print(f"!Bienvenido/a, {nombre}!")
+    
+nombre = input("Ingresa un nombre: ")
+bienvenida(nombre)
+
+#Crea una función que reciba un número y determine si es par o impar.
+def es_par(numero):
+    
+    if numero % 2 == 0:
+        return "Par"
+    else:
+        return "Impar"
+
+num = int(input("Ingresa un número: "))
+print(es_par(num))
+
+#Crea una función que reciba dos números y retorne su suma
+def suma(a, b):
+    return a + b 
+    
+a = float(input("Ingresa el primer número: "))
+b = float(input("Ingresa el segundo número: "))
+print("Resultado: ", suma(a, b))
+
+#Crea una función que reciba una palabra y retorne su longitud
+def longitud_palabra(palabra):
+    return len(palabra)
+    
+texto = input("Ingresar una palabra: ")
+print("Longitud: ", longitud_palabra(texto))
+
+#Crea una función que reciba un número y retorne su cuadrado
+def cuadrado(numero):
+    return numero ** 2  
+    
+num = float(input("Ingresa un número: "))
+print("Cuadrado: ", cuadrado(num))
+
+#Crea una función que reciba tres números y retorne el mayor de ellos
+def mayor_de_tres(a, b, c):
+    return max(a, b, c)
+
+a = float(input("Número 1: "))
+b = float(input("Número 2: "))
+c = float(input("Número 3: "))
+print("Mayor: ", mayor_de_tres(a, b, c))
+
+#Crea una función que convierta una temperatura de Celsius a Fahrenheit
+def celsius_a_fahrenheit(c):
+    return (c * 9/5) + 32
+
+temp = float(input("Ingrese la temperatura en Celsius: "))
+print("Temperatura en Fahrenheit: ", celsius_a_fahrenheit(temp))
+
+#Crea una función que reciba una lista de números y retorne la suma total
+def suma_lista(lista):
+    total = 0
+    for num in lista:
+        total += num
+    return total
+    
+numeros = []
+for i in range(8):
+    num = float(input(f"Ingrese un número: "))
+    numeros.append(num)
+print("Suma total: ", suma_lista(numeros))
+
+#Crea una función que retorne True si un número es positivo, o False si no lo es
+def es_positivo(numero):
+    return numero > 0
+    
+num = float(input("Ingrese un número: "))
+
+if es_positivo(num):
+    print("True")
+else:
+    print("False")
+
+#Crea una función que reciba una palabra y retorne la cadena invertida
+def invertir_palabra(palabra):
+    return palabra[::-1]
+    
+palabra = input("Ingrese una palabra: ")
+print("Palabra invertida: ", invertir_palabra(palabra))
+  </CODE></PRE>
+
+<p>
+El Deber 2 trata sobre la <b>Funciones</b>, utilizada en programación
+Para organizar, reutilizar y simplificar el código.
+</p>
+
+<p>
+Para no escribir lo mismo muchas veces se utiliza las funciones.
+</p>
+
+<div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;">
+
+  <iframe src="https://drive.google.com/file/d/1p7KhV4Y5rZAUPn-9Rwy8Oxku8KPVu2RZ/preview"
+
+    style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;"
+
+    allow="autoplay; encrypted-media" allowfullscreen>
+
+  </iframe>
+
+</div>
+
+<a href="Deber1.html">Volver a la sección Deberes</a>
+
+</div>
+
+</body>
+</html>
