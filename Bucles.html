@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deber 1 - Sentencia IF</title>
+
+    <style>
+        body{
+            font-family: Arial, sans-serif;
+            background-color:#f4f4f4;
+            text-align:center;
+            margin:0;
+            padding:40px;
+        }
+
+        .contenedor{
+            background:white;
+            padding:30px;
+            border-radius:10px;
+            width:70%;
+            margin:auto;
+            box-shadow:0px 5px 15px rgba(0,0,0,0.2);
+        }
+
+        a{
+            display:inline-block;
+            margin-top:20px;
+            padding:10px 20px;
+            background:#2c5364;
+            color:white;
+            text-decoration:none;
+            border-radius:6px;
+        }
+
+        a:hover{
+            background:#1b3642;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="contenedor">
+
+<h1>Deber 1</h1>
+
+<h2>Sentencia IF</h2>
+
+<PRE><CODE>
+#Deber 2 - Bucles
+#Imprime los números del 1 al 10
+for i in range(1, 11):
+    print(i)
+
+#Imprime los números pares del 1 al 20
+for i in range(1, 21):
+    if i % 2 == 0:
+        print(i)
+
+#Muestra la tabla de multiplicar del número que ingrese el usuario
+num = int(input("Ingrese un número: "))
+
+for i in range(1, 11):
+    print(num, "x", i, "=", num * i)
+
+#Imprime los números del 10 al 1 en orden descendente.
+for i in range(10, 0, -1):
+    print(i)
+
+#Pide un número y calcula la suma acumulada desde 1 hasta ese valor.
+n = int(input("Ingrese un número: "))
+suma = 0
+for i in range(1, n + 1):
+    suma += 1
+    print("La suma es: ", suma)
+
+#Cuenta cuántas vocales hay en una palabra ingresada por el usuario.
+palabra = input("Ingresa una palabra: ")
+
+contador = 0
+for letra in palabra:
+    if letra in "aeiou""AEIOU":
+        contador += 1 
+print("Cantidad de vocales: ", contador)   
+
+#Solicita una contraseña repetidamente hasta que el usuario la ingrese de forma correcta
+correcta = "Alex1234"
+
+while True:
+    clave = input("Ingrese la clave: ")
+    
+    if clave == correcta:
+        print("Correcto")
+        break 
+    else:
+        print("Incorrecto, intente otra vez")
+
+#Muestra los números del 1 al 50 que sean múltiplos de 5
+for i in range(1, 51):
+    if i % 5 == 0:
+        print(i)
+
+#Pide 5 números al usuario e indica cuál es el mayor.
+mayor = None
+for i in range(5):
+    num = float(input("Ingresa el número: "))
+    
+    if mayor is None or num > mayor:
+        mayor = num
+print("El número mayor es: ", mayor)
+
+#Imprime un triángulo de asteriscos de 5 filas (* / ** / *** …)
+for i in range(1, 6):
+    print("*" * i)
+  </CODE></PRE>
+
+<p>
+El deber 1 trata sobre la <b>Bucles for y while</b>, utilizada en programación
+Repetir varias veces un algo de acuerdo a un rango o hasta que una condición se cumpla.
+</p>
+
+<p>
+El Bucle "for" se usa cuando sabes cuántas veces repetir algo.
+El bucle "while" se usa cuando no sabemos cuantas veces repetir. 
+</p>
+
+<div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;">
+
+  <iframe src="https://drive.google.com/file/d/1uiULMRq4PWKgmi-nwiJgkDwhPGvKWGKi/preview"
+
+    style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;"
+
+    allow="autoplay; encrypted-media" allowfullscreen>
+
+  </iframe>
+
+</div>
+
+<a href="Deber1.html">Volver a la sección Deberes</a>
+
+</div>
+
+</body>
+</html>
