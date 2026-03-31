@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video 3 - Calculadora Básica en Java</title>
+
+    <style>
+        body{
+            font-family: Arial, sans-serif;
+            background-color:#f4f4f4;
+            text-align:center;
+            margin:0;
+            padding:40px;
+        }
+
+        .contenedor{
+            background:white;
+            padding:30px;
+            border-radius:10px;
+            width:70%;
+            margin:auto;
+            box-shadow:0px 5px 15px rgba(0,0,0,0.2);
+        }
+
+        a{
+            display:inline-block;
+            margin-top:20px;
+            padding:10px 20px;
+            background:#2c5364;
+            color:white;
+            text-decoration:none;
+            border-radius:6px;
+        }
+
+        a:hover{
+            background:#1b3642;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="contenedor">
+
+<h1>Video 3</h1>
+
+<h2>Calculadora básica en Java</h2>
+
+<PRE><CODE>
+import java.util.Scanner;
+
+public class Calculadora {
+    
+    public static double sumar(double a, double b) {
+        return a + b;
+    }
+    public static double restar(double a, double b) {
+        return a - b;
+    }
+    public static double multiplicar(double a, double b) {
+        return a * b;
+    }
+    public static String dividir(double a, double b) {
+        if (b == 0) {
+            return "Error: No se puede dividir para 0";
+        }
+        return String.valueOf(a / b);
+    }
+    
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int opcion;
+        
+        do{
+            System.out.println("\n=== CALCULADORA ===");
+            
+            System.out.print("Ingrese el primer número: ");
+            double num1 = sc.nextDouble();
+            
+            System.out.print("Ingrese el segundo npumero: ");
+            double num2 = sc.nextDouble();
+            
+            System.out.println("\nSeleccione una operación: ");
+            System.out.println("1. Sumar");
+            System.out.println("2. Restar");
+            System.out.println("3. Multiplicar");
+            System.out.println("4. Dividir");
+            System.out.println("5. Salir");
+            
+            System.out.print("Elige una opción: ");
+            opcion = sc.nextInt();
+            
+            switch (opcion) {
+                case 1:
+                    System.out.println("Resultado: " + sumar(num1, num2));
+                    break;
+                case 2:
+                    System.out.println("Resultado: " + restar(num1, num2));
+                    break;
+                case 3:
+                    System.out.println("Resultado: " + multiplicar(num1, num2));
+                    break;
+                case 4:
+                    System.out.println("Resultado: " + dividir(num1, num2));
+                    break;
+                case 5:
+                    System.out.println("Gracias por utilizar la calculadora");
+                    break;
+                default:
+                    System.out.println("Opción invalidad");
+            }
+        }while (opcion != 5);
+        sc.close();
+    }
+}
+  </CODE></PRE>
+
+<p>
+El Video 3 trata sobre la <b>Calculadora básica en Java</b>
+</p>
+
+<div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;">
+
+  <iframe src="https://drive.google.com/file/d/133x_fkIoisXTv-5DOKhJr5WgGJD5gGB4/preview"
+
+    style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;"
+
+    allow="autoplay; encrypted-media" allowfullscreen>
+
+  </iframe>
+
+</div>
+
+<a href="Lecciones.html">Volver a la sección Lecciones</a>
+
+</div>
+
+</body>
+</html>

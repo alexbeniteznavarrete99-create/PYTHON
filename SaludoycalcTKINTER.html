@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video 2 - Saludo y Calculadora con tkinter</title>
+
+    <style>
+        body{
+            font-family: Arial, sans-serif;
+            background-color:#f4f4f4;
+            text-align:center;
+            margin:0;
+            padding:40px;
+        }
+
+        .contenedor{
+            background:white;
+            padding:30px;
+            border-radius:10px;
+            width:70%;
+            margin:auto;
+            box-shadow:0px 5px 15px rgba(0,0,0,0.2);
+        }
+
+        a{
+            display:inline-block;
+            margin-top:20px;
+            padding:10px 20px;
+            background:#2c5364;
+            color:white;
+            text-decoration:none;
+            border-radius:6px;
+        }
+
+        a:hover{
+            background:#1b3642;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="contenedor">
+
+<h1>Video 2</h1>
+
+<h2>Saludo y Calculadora con tkinter</h2>
+
+<PRE><CODE>
+#Saludo con Tkinter
+import tkinter as tk
+from tkinter import messagebox
+
+def saludar():
+    nombre = entry_nombre.get()
+    if nombre == "":
+        messagebox.showwarning("Aviso", "Ingresa tu nombre")
+    else:
+        messagebox.showinfo("Saludo", f"Hola, Bienvenido a la clase de Programación")
+
+ventana = tk.Tk()
+ventana.title("Saludo")
+ventana.geometry("300x150")
+
+tk.Label(ventana, text="Ingresa tu nombre: ").pack(pady=5)
+
+entry_nombre = tk. Entry(ventana)
+entry_nombre.pack(pady=5)
+
+tk.Button(ventana, text="Saludar", command=saludar).pack(pady=10)
+
+ventana.mainloop()
+
+#CALCULADORA CON Tkinter
+import tkinter as tk
+def sumar():
+    num1=int(entry1.get())
+    num2=int(entry2.get())
+    resultado = num1 + num2
+    result.config(text=f"La suma es {resultado}")
+
+def restar():
+    num1=int(entry1.get())
+    num2=int(entry2.get())
+    resultado = num1 - num2
+    result.config(text=f"La resta es {resultado}")
+
+def multiplicar():
+    num1=int(entry1.get())
+    num2=int(entry2.get())
+    resultado = num1 * num2
+    result.config(text=f"La multiplicacion es {resultado}")
+
+def dividir():
+    num1=int(entry1.get())
+    num2=int(entry2.get())
+    resultado = num1 / num2
+    result.config(text=f"La división es {resultado}")
+
+ventana = tk.Tk()
+ventana.geometry("300x400")
+ventana.title("Calculadora")
+
+frame = tk.Frame(ventana,bg="yellow")
+frame.pack(fill="both" ,expand="true")
+
+label1 =tk.Label(frame, text="Ingrese un numero",font=("Arial",15,"bold"), bg="yellow")
+label1.pack()
+
+entry1 = tk.Entry(frame)
+entry1.pack()
+
+label2 =tk.Label(frame, text="Ingrese otro numero",font=("Arial",20,"bold"), bg="yellow")
+label2.pack()
+
+entry2 = tk.Entry(frame)
+entry2.pack()
+
+button = tk.Button(frame, text="sumar", command=sumar)
+button.pack()
+
+button = tk.Button(frame, text="restar", command=restar)
+button.pack()
+
+button = tk.Button(frame, text="multiplicar", command=multiplicar)
+button.pack()
+
+button = tk.Button(frame, text="dividir", command=dividir)
+button.pack()
+
+result = tk. Label(frame,text="",font=("Arial",20,"bold"),bg="yellow")
+result.pack()
+
+ventana.mainloop()
+  </CODE></PRE>
+
+<p>
+El Video 2 trata sobre la <b>Saludo y Calculadora utilizando la librería Tkinter</b>
+</p>
+
+<div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;">
+
+  <iframe src="https://drive.google.com/file/d/1R8lU9JLCDlYHMYnSGDP-17Fsx1h_jWsI/preview"
+
+    style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;"
+
+    allow="autoplay; encrypted-media" allowfullscreen>
+
+  </iframe>
+
+</div>
+
+<a href="Lecciones.html">Volver a la sección Lecciones</a>
+
+</div>
+
+</body>
+</html>
