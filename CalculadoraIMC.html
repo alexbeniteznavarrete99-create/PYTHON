@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deber 1 - Sentencia IF</title>
+
+    <style>
+        body{
+            font-family: Arial, sans-serif;
+            background-color:#f4f4f4;
+            text-align:center;
+            margin:0;
+            padding:40px;
+        }
+
+        .contenedor{
+            background:white;
+            padding:30px;
+            border-radius:10px;
+            width:70%;
+            margin:auto;
+            box-shadow:0px 5px 15px rgba(0,0,0,0.2);
+        }
+
+        a{
+            display:inline-block;
+            margin-top:20px;
+            padding:10px 20px;
+            background:#2c5364;
+            color:white;
+            text-decoration:none;
+            border-radius:6px;
+        }
+
+        a:hover{
+            background:#1b3642;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="contenedor">
+
+<h1>Lección 2</h1>
+
+<h2>Calculadora de IMC con Tkinter</h2>
+
+<PRE><CODE>
+    import tkinter as tk
+from tkinter import messagebox
+
+def calcular_imc():
+    try:
+        peso = float(entry_peso.get())
+        altura = float(entry_altura.get())
+
+        if altura <= 0:
+            raise ValueError
+        imc = peso / (altura ** 2)
+
+        if imc < 18.5:
+            estado = "Bajo peso"
+        elif imc < 24.9:
+            estado = "Normal"
+        elif imc < 29.9:
+            estado = "Sobrepeso"
+        else: 
+            estado = "Obesidad"
+        
+        resultado.set(f"IMC: {imc:.2f} ({estado})")
+
+    except:
+        messagebox.showerror("Error", "Ingresa valores validos")
+
+ventana = tk.Tk()
+ventana.title("Calculadora IMC")
+ventana.geometry("300x200")
+
+resultado = tk.StringVar()
+
+tk.Label(ventana, text="Peso (kg):").pack()
+entry_peso = tk.Entry(ventana)
+entry_peso.pack()
+
+tk.Label(ventana, text="Altura (m):").pack()
+entry_altura = tk.Entry(ventana)
+entry_altura.pack()
+
+tk.Button(ventana, text="Calcular IMC", command=calcular_imc).pack(pady=10)
+
+tk.Label(ventana, textvariable=resultado, fg="blue").pack()
+
+ventana.mainloop()
+  </CODE></PRE>
+
+<p>
+La lección 2 trata sobre la <b>Calculadora de IMC con Tkinter</b>, la Librería Tkinter 
+se utiliza para crear interfaces gráficas (ventanas).
+</p>
+
+<p>
+Con Tkinter se puede crear programas con Ventanas, Botones, cuadros de texto.
+</p>
+
+<div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;">
+
+  <iframe src="https://drive.google.com/file/d/1PM9s6rO-8GL-uoWXdaeGNVk29uUYvVO8/preview"
+
+    style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;"
+
+    allow="autoplay; encrypted-media" allowfullscreen>
+
+  </iframe>
+
+</div>
+
+<a href="Lecciones.html">Volver a la sección Deberes</a>
+
+</div>
+
+</body>
+</html>
